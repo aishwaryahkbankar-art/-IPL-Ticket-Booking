@@ -18,18 +18,23 @@
     <!-- Navigation Bar -->
 
     <header>
-        <nav>
-            <h2>IPL 2026</h2>
+    <nav>
 
-            <ul>
-                <li><a href="#matches">Matches</a></li>
-                <li><a href="booking.html">Book Ticket</a></li>
-                <li><a href="#mybookings">My Bookings</a></li>
-                <li><a href="#guidelines">Guidelines</a></li>
-            </ul>
-        </nav>
-    </header>
+        <h2>IPL 2026</h2>
 
+        <button class="menu-toggle" id="menuToggle">
+            ☰
+        </button>
+
+        <ul id="navLinks">
+            <li><a href="#matches">Matches</a></li>
+            <li><a href="booking.html">Book Ticket</a></li>
+            <li><a href="#mybookings">My Bookings</a></li>
+            <li><a href="#guidelines">Guidelines</a></li>
+        </ul>
+
+    </nav>
+</header>
 
     <!-- Hero Section -->
 
@@ -116,125 +121,115 @@
             </select>
 
         </div>
+        <!-- Grid and List View Buttons -->
+
+<div class="view-buttons">
+
+    <button onclick="changeView('grid')">
+        Grid View
+    </button>
+
+    <button onclick="changeView('list')">
+        List View
+    </button>
+
+</div>
 
 
-        <div class="table-container">
+        <!-- Match Cards -->
 
-            <table>
+<div class="match-grid" id="matchGrid">
 
-                <thead>
+    <div class="match-card" data-team="RCB CSK">
 
-                    <tr>
-                        <th>Match No.</th>
-                        <th>Teams</th>
-                        <th>Date & Time</th>
-                        <th>Venue</th>
-                        <th>General</th>
-                        <th>Premium</th>
-                        <th>VIP</th>
-                        <th>Action</th>
-                    </tr>
+        <h3>Match 1</h3>
+        <h2>RCB vs CSK</h2>
+        <p>Venue: Bengaluru</p>
+        <p>Date: To be announced</p>
+        <p>General: ₹800</p>
+        <p>Premium: ₹1500</p>
+        <p>VIP: ₹3000</p>
 
-                </thead>
+        <button class="book-btn"
+            onclick="selectMatch('RCB vs CSK')">
+            Book Ticket
+        </button>
 
-
-                <tbody id="matchTable">
-
-                    <tr>
-                        <td>1</td>
-                        <td>RCB vs CSK</td>
-                        <td>To be announced</td>
-                        <td>Bengaluru</td>
-                        <td>₹800</td>
-                        <td>₹1500</td>
-                        <td>₹3000</td>
-
-                        <td>
-                            <button class="book-btn"
-                                onclick="selectMatch('RCB vs CSK')">
-                                Book
-                            </button>
-                        </td>
-                    </tr>
+    </div>
 
 
-                    <tr>
-                        <td>2</td>
-                        <td>MI vs KKR</td>
-                        <td>To be announced</td>
-                        <td>Mumbai</td>
-                        <td>₹1000</td>
-                        <td>₹2000</td>
-                        <td>₹4000</td>
+    <div class="match-card" data-team="MI KKR">
 
-                        <td>
-                            <button class="book-btn"
-                                onclick="selectMatch('MI vs KKR')">
-                                Book
-                            </button>
-                        </td>
-                    </tr>
+        <h3>Match 2</h3>
+        <h2>MI vs KKR</h2>
+        <p>Venue: Mumbai</p>
+        <p>Date: To be announced</p>
+        <p>General: ₹1000</p>
+        <p>Premium: ₹2000</p>
+        <p>VIP: ₹4000</p>
 
+        <button class="book-btn"
+            onclick="selectMatch('MI vs KKR')">
+            Book Ticket
+        </button>
 
-                    <tr>
-                        <td>3</td>
-                        <td>SRH vs RR</td>
-                        <td>To be announced</td>
-                        <td>Hyderabad</td>
-                        <td>₹700</td>
-                        <td>₹1400</td>
-                        <td>₹2800</td>
-
-                        <td>
-                            <button class="book-btn"
-                                onclick="selectMatch('SRH vs RR')">
-                                Book
-                            </button>
-                        </td>
-                    </tr>
+    </div>
 
 
-                    <tr>
-                        <td>4</td>
-                        <td>DC vs PBKS</td>
-                        <td>To be announced</td>
-                        <td>Delhi</td>
-                        <td>₹900</td>
-                        <td>₹1800</td>
-                        <td>₹3500</td>
+    <div class="match-card" data-team="SRH RR">
 
-                        <td>
-                            <button class="book-btn"
-                                onclick="selectMatch('DC vs PBKS')">
-                                Book
-                            </button>
-                        </td>
-                    </tr>
+        <h3>Match 3</h3>
+        <h2>SRH vs RR</h2>
+        <p>Venue: Hyderabad</p>
+        <p>Date: To be announced</p>
+        <p>General: ₹700</p>
+        <p>Premium: ₹1400</p>
+        <p>VIP: ₹2800</p>
+
+        <button class="book-btn"
+            onclick="selectMatch('SRH vs RR')">
+            Book Ticket
+        </button>
+
+    </div>
 
 
-                    <tr>
-                        <td>5</td>
-                        <td>GT vs LSG</td>
-                        <td>To be announced</td>
-                        <td>Ahmedabad</td>
-                        <td>₹800</td>
-                        <td>₹1600</td>
-                        <td>₹3200</td>
+    <div class="match-card" data-team="DC PBKS">
 
-                        <td>
-                            <button class="book-btn"
-                                onclick="selectMatch('GT vs LSG')">
-                                Book
-                            </button>
-                        </td>
-                    </tr>
+        <h3>Match 4</h3>
+        <h2>DC vs PBKS</h2>
+        <p>Venue: Delhi</p>
+        <p>Date: To be announced</p>
+        <p>General: ₹900</p>
+        <p>Premium: ₹1800</p>
+        <p>VIP: ₹3500</p>
 
-                </tbody>
+        <button class="book-btn"
+            onclick="selectMatch('DC vs PBKS')">
+            Book Ticket
+        </button>
 
-            </table>
+    </div>
 
-        </div>
 
+    <div class="match-card" data-team="GT LSG">
+
+        <h3>Match 5</h3>
+        <h2>GT vs LSG</h2>
+        <p>Venue: Ahmedabad</p>
+        <p>Date: To be announced</p>
+        <p>General: ₹800</p>
+        <p>Premium: ₹1600</p>
+        <p>VIP: ₹3200</p>
+
+        <button class="book-btn"
+            onclick="selectMatch('GT vs LSG')">
+            Book Ticket
+        </button>
+
+    </div>
+
+</div>
 
         <p>
             <small>
@@ -401,7 +396,7 @@
 
         <h2>Stadium Guidelines</h2>
 
-        <div class="guidelines-container">
+        <div class="guidelines-container guidelines-grid">
 
 
             <div class="card">
