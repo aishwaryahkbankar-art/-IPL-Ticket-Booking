@@ -143,30 +143,19 @@ quantityInput.addEventListener("input", updateSummary);
         // Filter Matches Based on Team
 
         function filterMatches() {
+    const filter = document.getElementById("teamFilter").value;
+    const cards = document.querySelectorAll(".match-card");
 
-            let filter = document.getElementById("teamFilter").value;
+    cards.forEach(card => {
+        const teams = card.dataset.team;
 
-            let rows = document.querySelectorAll("#matchTable tr");
-
-
-            rows.forEach(function(row) {
-
-                let teams = row.cells[1].textContent;
-
-                if (filter === "All" || teams.includes(filter)) {
-
-                    row.style.display = "";
-
-                } else {
-
-                    row.style.display = "none";
-
-                }
-
-            });
-
+        if (filter === "All" || teams.includes(filter)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
         }
-
+    });
+}
 
 
         // Confirm Ticket Booking
@@ -286,3 +275,23 @@ showToast(
             }
 
         );
+        // Hamburger Menu Toggle
+
+const menuToggle = document.getElementById("menuToggle");
+
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+
+    navLinks.classList.toggle("active");
+
+});
+function changeView(view) {
+    const matchGrid = document.getElementById("matchGrid");
+
+    if (view === "grid") {
+        matchGrid.classList.remove("list-view");
+    } else {
+        matchGrid.classList.add("list-view");
+    }
+}
