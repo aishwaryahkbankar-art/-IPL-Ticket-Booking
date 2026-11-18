@@ -58,7 +58,23 @@ const prices = {
             }
 
         };
+      // Select Booking Form Elements
 
+const matchSelect = document.getElementById("match");
+
+const standSelect = document.getElementById("stand");
+
+const quantityInput = document.getElementById("quantity");
+
+const summaryMatch = document.getElementById("summaryMatch");
+
+const summaryStand = document.getElementById("summaryStand");
+
+const summaryQuantity = document.getElementById("summaryQuantity");
+
+const priceDisplay = document.getElementById("price");
+
+const totalDisplay = document.getElementById("total");
 
 
       // Select Match and Scroll to Booking Form
@@ -81,45 +97,46 @@ function selectMatch(matchName) {
 
         // Update Booking Summary
 
-        function updateSummary() {
+function updateSummary() {
 
-            let match = document.getElementById("match").value;
+    let match = matchSelect.value;
 
-            let stand = document.getElementById("stand").value;
+    let stand = standSelect.value;
 
-            let quantity = Number(
-                document.getElementById("quantity").value
-            ) || 0;
+    let quantity = Number(quantityInput.value) || 0;
 
+    // Get Ticket Price
 
-            // Get Price Based on Selected Match and Stand
+    let price = prices[match]?.[stand] || 0;
 
-            let price = prices[match]?.[stand] || 0;
+    // Calculate Total Price
 
+    let total = price * quantity;
 
-            // Calculate Total Amount
+    // Display Selected Details
 
-            let total = price * quantity;
+    summaryMatch.textContent = match || "Not Selected";
 
+    summaryStand.textContent = stand || "Not Selected";
 
-            // Display Summary
+    summaryQuantity.textContent = quantity;
 
-            document.getElementById("summaryMatch").textContent =
-                match || "Not Selected";
+    priceDisplay.textContent = price;
 
-            document.getElementById("summaryStand").textContent =
-                stand || "Not Selected";
+    totalDisplay.textContent = total;
 
-            document.getElementById("summaryQuantity").textContent =
-                quantity;
+    // Show Toast Notification
 
-            document.getElementById("price").textContent =
-                price;
+    showToast("Booking Summary Updated Successfully!");
 
-            document.getElementById("total").textContent =
-                total;
+}
+// Add Change Event Listeners
 
-        }
+matchSelect.addEventListener("change", updateSummary);
+
+standSelect.addEventListener("change", updateSummary);
+
+quantityInput.addEventListener("input", updateSummary);
 
 
 
