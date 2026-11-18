@@ -260,48 +260,33 @@
 
                 <label for="match">Match:</label>
 
-                <select id="match" required onchange="updateSummary()">
+<select id="match" required>
+    <option value="" selected disabled>Select a Match</option>
+    <option value="RCB vs CSK">RCB vs CSK</option>
+    <option value="MI vs KKR">MI vs KKR</option>
+    <option value="SRH vs RR">SRH vs RR</option>
+    <option value="DC vs PBKS">DC vs PBKS</option>
+    <option value="GT vs LSG">GT vs LSG</option>
+</select>
+<label for="stand">Stand Category:</label>
 
-                    <option value="">Select a Match</option>
-
-                    <option value="RCB vs CSK">RCB vs CSK</option>
-
-                    <option value="MI vs KKR">MI vs KKR</option>
-
-                    <option value="SRH vs RR">SRH vs RR</option>
-
-                    <option value="DC vs PBKS">DC vs PBKS</option>
-
-                    <option value="GT vs LSG">GT vs LSG</option>
-
-                </select>
-
-
-                <label for="stand">Stand Category:</label>
-
-                <select id="stand" required onchange="updateSummary()">
-
-                    <option value="">Select Stand</option>
-
-                    <option value="General">General</option>
-
-                    <option value="Premium">Premium</option>
-
-                    <option value="VIP">VIP</option>
-
-                </select>
+<select id="stand" required>
+    <option value="" selected disabled>Select Stand</option>
+    <option value="General">General</option>
+    <option value="Premium">Premium</option>
+    <option value="VIP">VIP</option>
+</select>
 
 
                 <label for="quantity">Number of Tickets:</label>
 
                 <input type="number"
-                    id="quantity"
-                    min="1"
-                    max="10"
-                    step="1"
-                    placeholder="Enter number of tickets"
-                    required
-                    oninput="updateSummary()">
+                id="quantity"
+                  min="1"
+                  max="10"
+                  step="1"
+                 placeholder="Enter number of tickets"
+                  required>
 
 
                 <label for="name">Full Name:</label>
